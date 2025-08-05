@@ -329,6 +329,26 @@ Noir foca em PLONK/UltraPlonk/Honk por serem universais, balanceados e com boa c
 - Para computações específicas
 - Menos generalistas
 
+##### Não é necessário o arquivo de Power of Tau
+
+o Noir você não precisa do arquivo de cerimônia (como o powersOfTau28_hez_final_XX.ptau do Circom) porque ele usa sistemas de prova universais.
+Diferença Fundamental:
+Circom + Groth16 (precisa de cerimônia):
+
+Circuit-specific setup: Cada circuito precisa de sua própria cerimônia
+Trusted setup específico gera chaves de verificação únicas
+Arquivos .ptau contêm "poderes de tau" para a cerimônia
+
+Noir + PLONK/UltraHonk (não precisa):
+
+Universal setup: Uma única cerimônia serve para todos os circuitos
+SRS (Structured Reference String) é reutilizável
+O Barretenberg já vem com o setup universal embutido
+
+**Por Que?**
+PLONK/UltraHonk foram projetados para serem universais - a mesma "cerimônia" funciona para qualquer circuito, eliminando a necessidade de downloads e setups específicos. Isso torna o desenvolvimento muito mais simples e seguro.
+Resumo: Noir abstrai completamente a complexidade das cerimônias porque usa sistemas de prova que precisam apenas de um setup universal já incluído na ferramenta.
+
 ### Configurações Recomendadas por Caso de Uso
 
 #### Browser/Client-Side Proving
