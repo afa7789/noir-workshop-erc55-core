@@ -1,0 +1,6 @@
+[package]
+name = "workshop"
+type = "bin"
+authors = [""]
+
+[dependencies]
